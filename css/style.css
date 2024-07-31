@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fcfafa;
+}
+
+#app {
+  padding: 0;
+  position: relative;
+}
+#app ul {
+  list-style: none;
+}
+#app a {
+  text-decoration: none;
+}
+#app .menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  right: -26px;
+  top: 15px;
+}
+#app .menu .logo {
+  max-width: 100%;
+  padding: 25px;
+  height: 80px;
+  text-align: center;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+}
+#app .menu .menu-nav {
+  background-color: #08303f;
+  padding: 0 50px;
+  border-bottom-left-radius: 80px;
+  border-top-left-radius: 80px;
+  width: 1000px;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  animation: 1s forwards slideLeft;
+}
+#app .menu .menu-nav .nav-lista {
+  display: flex;
+}
+#app .menu .menu-nav .nav-lista .nav-item {
+  max-width: 100%;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  max-height: 100%;
+}
+#app .menu .menu-nav .nav-lista .nav-item .item-link {
+  color: #ffffff;
+  font-size: 1rem;
+  max-width: 100%;
+  font-weight: 600;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+#app .menu .menu-nav .nav-lista .nav-item .item-link .fa-brands {
+  margin: 4px;
+  color: #25d366;
+}
+#app .menu .menu-nav .nav-lista .nav-item:hover {
+  background-color: #1e5e6e;
+}
+@keyframes slideLeft {
+  0% {
+    transform: perspective(300px) translateX(100vw);
+  }
+  100% {
+    transform: perspective(400px) translateX(0vw);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

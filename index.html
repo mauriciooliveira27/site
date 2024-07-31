@@ -4,27 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/styles.css"/>
+    
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
    
 
     <title>Document</title>
 </head>
-<body>                  
-  
-    <nav id="inicio">
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn"><i class="fa-solid fa-bars"></i></label>
-        <label class="logo">AL&Esquadria</label>
-        <ul>
-            <li ><a href="https://wa.me/5567991262238?text=Olá, gostaria de mais informações."><i class="fa-brands fa-whatsapp "></i> Fale Conosco</a></li>
-            <li><a href="#inicio" class="active">Inicio</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </nav>
+<body>          
+    <div id="app">
+        <header class="menu">
+            <h1 class="logo">AL&Esquadria</h1>
+            <nav class="menu-nav">
+                <ul class="nav-lista">
+                    <li class="nav-item" v-for="item in conteudoNav ">
+                        <a class="item-link" :href="item.atributo">
+                            <i v-if="item.whatsapp" class="fa-brands fa-whatsapp"></i>
+                            {{ item.conteudo }}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>        
+        <main id="servicos" class="main-container" style="margin: 100px">
+        </main>
+    </div>
     
-    <section id="servicos">
+        <script src="./vue.js"></script>
+        <!-- <main id="servicos">
         <div class="title">
             <h1>Serviços</h1>
         </div>
@@ -47,9 +54,8 @@
            
         </div>
    
-    </section>
-    
-    <main id="sobre">  
+        </section> -->
+    <!-- <main id="sobre">  
         <div class="container">
 
           
@@ -93,7 +99,7 @@
             <div class="bottom-bar">
                 <p>CopyRight &copy; 2024 AL&ESQUADRIAS Todos os direitos Reservados</p>
             </div>
-        </footer>
+        </footer> -->
 
     
 
