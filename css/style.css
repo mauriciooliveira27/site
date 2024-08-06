@@ -18,10 +18,6 @@ body {
   background-color: #fcfafa;
 }
 
-.espaco {
-  margin: 200px;
-}
-
 #app {
   padding: 0;
   position: relative;
@@ -105,7 +101,7 @@ body {
   text-align: center;
   font-size: 3.5rem;
   text-transform: capitalize;
-  padding-bottom: 40px;
+  padding-bottom: 60px;
 }
 #app .main-container .main-conteudo {
   display: grid;
@@ -192,6 +188,12 @@ body {
 }
 #app .main-container .main-conteudo .conteudo .texto-da-img.fade-out {
   opacity: 0;
+}
+#app .main-container::before {
+  content: "";
+  display: block;
+  padding: 60px;
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

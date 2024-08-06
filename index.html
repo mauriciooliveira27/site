@@ -9,9 +9,6 @@
     <title>Document</title>
 </head>
 <body>          
-    <div class="espaco">
-
-    </div>
     <div id="app">
         <header class="menu">
             <h1 class="logo">AL&Esquadria</h1>
@@ -25,7 +22,9 @@
                     </li>
                 </ul>
             </nav>
-        </header>        
+        </header>
+            <div class="espaco">
+</div>
         <main class="main-container" :id="conteudoNav[2].id">
             <h1 class="main-titulo">{{ tituloMain }}</h1>
             <section class="main-conteudo">
@@ -79,7 +78,7 @@
                 let currentIndex = -1;
                 
                 items.forEach((item, index) => {
-                  const itemPosition = item.offsetTop;
+                  const itemPosition = item.offsetTop - this.$el.querySelector('.scroll-imgs').offsetTop;
                   const itemHeight = item.offsetHeight;
                   
                   if (scrollPosition >= itemPosition - containerHeight / 2 &&
@@ -87,7 +86,28 @@
                     currentIndex = index;
                   }
                 });
+
+                // const isElementInViewport = (el) =>{
+                //   const rect = el.getBoundingClientRect();
+                //   return(
+                //     rect.top >= 0 &&
+                //     rect.left >= 0  
+                //     // rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                //     // rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                //   )
+                // }
+
+                // window.addEventListener('scroll', ()=> {
+                //   const element = document.querySelector(".item-img")
+
+                //   if(isElementInViewport(element)){
+                //     console.log("Esta visivel")
+                //   } else{
+                //     console.log("Nâo está visível")
+                //   }
+                // })
                 
+                console.log(currentIndex)
                 if (currentIndex !== -1) {
                   this.currentContent = this.contentCarrossel[currentIndex].conteudo;
                   this.currentTitle = this.contentCarrossel[currentIndex].nome;
