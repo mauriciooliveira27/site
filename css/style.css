@@ -2,6 +2,7 @@
 /* CODE SESSION TO SEARCH
   - MENU SESSION
   - MAIN SESSION
+  - ABOUT SESSION
 
 */
 * {
@@ -37,6 +38,8 @@ body {
   top: 0px;
   padding: 10px 0px 0px 0px;
   background-color: #fcfafa;
+  left: 50%;
+  transform: translateX(-50%);
 }
 #app .menu .logo {
   max-width: 100%;
@@ -94,14 +97,13 @@ body {
     transform: perspective(400px) translateX(0vw);
   }
 }
-#app .main-container {
-  margin-bottom: 1000px;
-}
-#app .main-container .main-titulo {
+#app .sessao-titulo {
   text-align: center;
   font-size: 3.5rem;
-  text-transform: capitalize;
   padding-bottom: 60px;
+}
+#app .sessao-titulo.sobre {
+  margin-top: 60px;
 }
 #app .main-container .main-conteudo {
   display: grid;
@@ -194,6 +196,38 @@ body {
   display: block;
   padding: 60px;
   margin-top: 20px;
+}
+#app .qs-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#app .qs-container .qs-conteudo {
+  width: 1200px;
+  height: 500px;
+  margin-bottom: 20px;
+  position: relative;
+  background-color: #fcfafa;
+}
+#app .qs-container .qs-conteudo .qs-img-janela {
+  width: 960px;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+#app .qs-container .qs-conteudo .qs-texto {
+  position: absolute;
+  top: 50px;
+  right: 340px;
+  width: 500px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+#app .qs-container .qs-conteudo .qs-texto.segundo {
+  top: 250px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -23,14 +23,14 @@
                 </ul>
             </nav>
         </header>
-            <div class="espaco">
-</div>
+        <!-- <div class="espaco">
+        </div> -->
         <main class="main-container" :id="conteudoNav[2].id">
-            <h1 class="main-titulo">{{ tituloMain }}</h1>
+            <h1 class="sessao-titulo">{{ conteudoNav[2].conteudo }}</h1>
             <section class="main-conteudo">
               <div class="scroll-imgs" @scroll="handleScroll">
                 <ul class="lista-img">
-                  <li v-for="(item, index) in contentCarrossel" :key="index" class="item-img" :class="{'margin': item.margin}">
+                  <li v-for="(item, index) in conteudoMain" :key="index" class="item-img" :class="{'margin': item.margin}">
                     <img :src="item.img" :alt="item.nome" class="img" :ref="'img' + index">
                   </li>
                 </ul>
@@ -41,7 +41,15 @@
               </div>
             </section>
           </main>
-        </div>
+        <section class="qs-container" :id="conteudoNav[3].id">
+            <h1 class="sessao-titulo sobre">{{ conteudoQuemSomos.titulo }}</h1>
+            <div class="qs-conteudo">
+              <img :src="conteudoQuemSomos.img" alt="janela" class="qs-img-janela">
+              <p class="qs-texto"> {{ conteudoQuemSomos.conteudo }}</p>
+              <p class="qs-texto segundo"> {{ conteudoQuemSomos.conteudo }}</p>
+            </div>
+          </section>
+    </div>
         
         <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
         <script>
@@ -55,14 +63,18 @@
                 { id:"sobre",atributo: "#sobre", conteudo: "Sobre", whatsapp: false },
                 { id:"contato",atributo: "#contato", conteudo: "Contato", whatsapp: false }
               ],
-              tituloMain: "serviços",
-              contentCarrossel: [
+
+              conteudoMain: [
                 { img: "./imagens/porta.jpg", conteudo: "Gourmet Na AL & ESQUADRIAS, oferecemos esquadrias projetadas especialmente para áreas gourmet, unindo resistência, durabilidade e um estilo sofisticado. Nossos produtos são fabricados com alumínio de alta qualidade, o que garante uma estrutura robusta e uma longa vida útil, mesmo sob condições de uso intenso e variações climáticas. Com um design moderno e elegante, as esquadrias são ideais para criar ambientes gourmet requintados, proporcionando uma estética refinada que valoriza e transforma qualquer espaço. A tecnologia avançada empregada na fabricação permite uma instalação rápida e simples, além de exigir pouca manutenção. Disponíveis em diversas opções de acabamentos e cores, as esquadrias da AL & ESQUADRIAS são a escolha perfeita para quem deseja combinar segurança, funcionalidade e um toque de sofisticação em suas áreas gourmet.1", nome: "Porta", margin: true },
                 { img: "./imagens/portão.jpg", conteudo: "Na AL & ESQUADRIAS, nossas portas de hall de entrada são a expressão máxima de elegância e segurança. Projetadas para causar uma impressão duradoura, essas portas são fabricadas com alumínio de alta qualidade, garantindo uma estrutura robusta e uma durabilidade excepcional. Com um design sofisticado e moderno, elas oferecem um acabamento impecável que não só valoriza a entrada do seu imóvel, mas também complementa a arquitetura e o estilo do ambiente. As portas de hall de entrada da AL & ESQUADRIAS são ideais para criar uma primeira impressão marcante, combinando proteção eficaz com uma estética atraente. A tecnologia avançada utilizada em nossa fabricação assegura uma instalação sem esforço e uma manutenção mínima, enquanto a ampla gama de acabamentos e cores disponíveis permite personalizar cada porta para atender às suas preferências e necessidades específicas. Escolha nossas portas de hall de entrada para unir beleza e funcionalidade de forma harmoniosa e sofisticada.2", nome: "Portão" },
                 { img: "./imagens/ai-gerado-de-entrada-de-estilo-moderno_23-2150692301.jpg", conteudo: "Na AL & ESQUADRIAS, oferecemos uma ampla gama de portas e janelas que combinam funcionalidade, durabilidade e design moderno. Nossos produtos são fabricados com materiais de alta qualidade, como alumínio e vidro de alto desempenho, assegurando uma estrutura robusta e uma longa vida útil. As portas e janelas da AL & ESQUADRIAS são projetadas para atender às mais variadas necessidades, desde garantir segurança e privacidade até proporcionar uma estética sofisticada que valoriza qualquer ambiente. Com diversas opções de acabamentos e personalizações, nossas soluções são ideais para residências e comerciais, proporcionando não apenas uma excelente proteção contra as intempéries, mas também um acabamento elegante e sofisticado. Com fácil instalação e manutenção mínima, nossos produtos são a escolha perfeita para quem busca combinar qualidade e estilo de forma eficiente.3", nome: "Janela" }
               ],
               currentContent: "",
-              currentTitle: ""
+              currentTitle: "",
+
+              conteudoQuemSomos: { titulo: "Quem somos nós",img: "./imagens/janela.png", conteudo: "A AL & ESQUADRIAS é uma fabricante de renome, especializada em esquadrias de alumínio, portas, janelas, caixilhos e uma variedade de produtos de alta qualidade. Situada em Campo Grande/MS, atendemos toda a região com vasta experiência no setor. Somos reconhecidos por oferecer apenas produtos modernos e com acabamento impecável, fabricados com matéria-prima de primeira linha, atendendo às necessidades dos nossos clientes com excelência.", tituto: "Quem Somos"},
+              
+
             },
             mounted() {
               this.updateContent();
@@ -109,8 +121,8 @@
                 
                 console.log(currentIndex)
                 if (currentIndex !== -1) {
-                  this.currentContent = this.contentCarrossel[currentIndex].conteudo;
-                  this.currentTitle = this.contentCarrossel[currentIndex].nome;
+                  this.currentContent = this.conteudoMain[currentIndex].conteudo;
+                  this.currentTitle = this.conteudoMain[currentIndex].nome;
                 } else {
                   this.currentContent = "";
                   this.currentTitle = "";
